@@ -1,0 +1,17 @@
+{"properties": [
+  {
+    "name": "response.success",
+    "type": "java.lang.String",
+    "description": "Response if there's nothing wrong with the process"
+  },
+  {
+    "name": "response.fail",
+    "type": "java.lang.String",
+    "description": "Response if there's 'something wrong with the process"
+  },
+  {
+    "name": "date.format",
+    "type": "java.lang.String",
+    "description": "Standard Date Format MM/dd/yyyy"
+  }
+]}

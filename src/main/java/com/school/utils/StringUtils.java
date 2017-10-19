@@ -25,7 +25,7 @@ public class StringUtils {
 			try {
 				date = dateFormat.parse(dateString);
 			} catch (ParseException e) {
-				// TODO: Add logger
+				e.printStackTrace();
 			}
 		}
 		return date;
@@ -38,9 +38,22 @@ public class StringUtils {
 	 * @return boolean
 	 */
 	public static boolean isNotEmpty(String string) {
-		if (string != null && string.trim() != "") {
+		if (string != null && !string.trim().equals("")) {
 			return true;
 		}
 		return false;
+	}
+	
+	/**
+	 * Checks if string is empty
+	 * 
+	 * @param string
+	 * @return boolean
+	 */
+	public static boolean isEmpty(String string) {
+		if (string != null && string.trim().equals("")) {
+			return false;
+		}
+		return true;
 	}
 }
