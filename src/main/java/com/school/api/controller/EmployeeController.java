@@ -21,6 +21,17 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeRepository EmployeeRepository;
 	
+	@RequestMapping(method = RequestMethod.POST, path="/retrieve")
+	@ResponseBody public Employee retrieveEmployee(@RequestParam int employeeId) {
+		Employee employee = null;
+		try {
+			employee = EmployeeRepository.findOne(employeeId);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return employee;
+	}
+	
 	@RequestMapping(method = RequestMethod.POST, path="/add")
 	@ResponseBody public String addEmployee(@RequestParam String firstName,
 			@RequestParam String lastName,

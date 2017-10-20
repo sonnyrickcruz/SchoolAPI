@@ -2,10 +2,13 @@ package com.school.api.entities;
 
 import java.lang.reflect.Field;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 import org.springframework.beans.factory.annotation.Required;
 
@@ -21,6 +24,10 @@ public class User {
 	private int employeeId;
 	private String password;
 	private String userLevel;
+	// Adding employee info of user
+	@OneToOne
+	@JoinColumn(name = "employeeId", insertable = false, updatable = false)
+	private Employee employee;
 
 	@Required
 	public String getUserLevel() {
@@ -65,7 +72,15 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
+	public Employee getEmployee() {
+		return employee;
+	}
+
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
+	}
+
 	/**
 	 * Check if the values of required fields are satisfied.
 	 * 
